@@ -84,6 +84,7 @@ QuicHandleRpsClient(
         int FileErr = (FilePtr == nullptr) ? 1 : 0;
 #endif
         if (FileErr == 0) {
+            printf("FileName: %s\n", FileName);
             struct hdr_histogram* histogram = nullptr;
             int HstStatus = hdr_init(1, LatencyStats.Max, 3, &histogram);
             if (HstStatus == 0) {
@@ -92,10 +93,12 @@ QuicHandleRpsClient(
                 }
                 hdr_percentiles_print(histogram, FilePtr, 5, 1.0, CLASSIC);
             } else {
+                printf("hdr_init QUIC_STATUS_OUT_OF_MEMORY\n");
                 Status = QUIC_STATUS_OUT_OF_MEMORY;
             }
             fclose(FilePtr);
         } else {
+            printf("hdr_init QUIC_STATUS_INVALID_PARAMETER\n");
             Status = QUIC_STATUS_INVALID_PARAMETER;
         }
     }
