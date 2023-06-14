@@ -608,6 +608,8 @@ function Invoke-LocalExe {
         Remove-Item -Path $WerDumpRegPath -Force | Out-Null
     }
 
+    Write-Host "List histogram folder"
+    dir $HistogramDir
     Write-Host ("Test Run Took " + $Stopwatch.Elapsed)
 
     return $RetVal -join "`n"
