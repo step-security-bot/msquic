@@ -402,8 +402,9 @@ main(
         return Status;
     }
 
+    printf("main here!!!!!!!!!!!!!!!!!!!!!!\n");
     for (int i = 0; i < argc; ++i) {
-
+        printf("argv[%d] = %s\n", i, argv[i]);
         if (_strnicmp(argv[i] + 1, DriverSearch, DriverLen) == 0) {
 #if defined(_WIN32) && !defined(QUIC_RESTRICTED_BUILD)
             //
