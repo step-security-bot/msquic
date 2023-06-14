@@ -61,6 +61,7 @@ QuicHandleRpsClient(
     GetStatistics(Data, MaxCount, &LatencyStats, &PercentileStats);
     printf("can you see this?\n");
     WriteOutput("can you see this? WriteOutput\n");
+    WriteOutput("FileName = %s\n", FileName);
     WriteOutput(
         "Result: %u RPS, Min: %d, Max: %d, 50th: %.0f, 90th: %.0f, 99th: %.0f, 99.9th: %.0f, 99.99th: %.0f, 99.999th: %.0f, 99.9999th: %.0f, StdErr: %f\n",
         RPS,
