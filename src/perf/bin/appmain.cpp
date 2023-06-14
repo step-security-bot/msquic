@@ -426,6 +426,7 @@ main(
             KeyboardWait = true;
         } else if (strncmp("--extraOutputFile", argv[i], 17) == 0) {
             FileName = argv[i] + 18;
+            printf("extraOutputFile matched!!!! argv[i] = %s FileName = %s\n", argv[i], FileName);
         } else {
             ArgValues[ArgCount] = argv[i];
             ArgCount++;
