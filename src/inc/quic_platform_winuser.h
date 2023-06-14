@@ -1257,6 +1257,7 @@ CxPlatSetCurrentThreadProcessorAffinity(
     GROUP_AFFINITY Group = {0};
     Group.Mask = (KAFFINITY)(1ull << ProcInfo->Index);
     Group.Group = ProcInfo->Group;
+    printf("Group.Mask = %llu Group.Group = %hu\n", Group.Mask, Group.Group);
     if (SetThreadGroupAffinity(GetCurrentThread(), &Group, NULL)) {
         return QUIC_STATUS_SUCCESS;
     }
