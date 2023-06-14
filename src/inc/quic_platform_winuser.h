@@ -1261,7 +1261,7 @@ CxPlatSetCurrentThreadProcessorAffinity(
     if (SetThreadGroupAffinity(GetCurrentThread(), &Group, NULL)) {
         return QUIC_STATUS_SUCCESS;
     }
-    printf("Group.Mask = %llu Group.Group = %hu\n", Group.Mask, Group.Group);
+    printf("ProcessorIndex = %hu Group.Mask = %llu Group.Group = %hu\n", ProcessorIndex, Group.Mask, Group.Group);
     return HRESULT_FROM_WIN32(GetLastError());
 }
 

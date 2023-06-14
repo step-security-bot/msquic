@@ -245,6 +245,7 @@ RpsClient::Start(
         //
         ActiveProcCount -= 2;
     }
+    WriteOutput("CxPlatProcActiveCount() %lu GetMaximumProcessorCount() %lu\n", CxPlatProcActiveCount(), CxPlatProcMaxCount());
     for (uint32_t i = 0; i < ConnectionCount; ++i) {
         Status = CxPlatSetCurrentThreadProcessorAffinity((uint16_t)(i % ActiveProcCount));
         if (QUIC_FAILED(Status)) {
