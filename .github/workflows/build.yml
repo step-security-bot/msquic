@@ -202,7 +202,7 @@ jobs:
         git config --global safe.directory '*'
     - name: Prepare Machine
       shell: pwsh
-      run: scripts/prepare-machine.ps1 -ForOneBranch -InitSubmodules
+      run: scripts/prepare-machine.ps1 -ForOneBranch -InitSubmodules -Tls ${{ matrix.tls }}
     - name: Build Debug
       shell: pwsh
       run: scripts/build.ps1 -Config Debug -Arch ${{ matrix.arch }} -ToolchainFile ${{ matrix.toolchain }} -Tls ${{ matrix.tls }} -DisableLogs -OneBranch ${{ matrix.static }}

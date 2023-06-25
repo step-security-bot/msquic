@@ -86,11 +86,11 @@ jobs:
         # this is to fix GIT not liking owner of the checkout dir
         git config --global safe.directory '*'
     - name: Prepare Machine (docker based)
-      if: inputs.os == 'linux'
+      if: inputs.plat == 'linux'
       shell: pwsh
       run: scripts/prepare-machine.ps1 -ForOneBranch -InitSubmodules -Tls ${{ inputs.tls }}
     - name: Prepare Machine
-      if: inputs.os != 'linux'
+      if: inputs.plat != 'linux'
       shell: pwsh
       run: scripts/prepare-machine.ps1 -ForBuild -Tls ${{ inputs.tls }}
     - name: Build For Test
