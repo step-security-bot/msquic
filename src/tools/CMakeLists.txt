@@ -3,8 +3,8 @@
 
 function(add_quic_tool)
     set(targetname ${ARGV0})
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-rpath='$ORIGIN'")
     list(REMOVE_AT ARGV 0)
-
     add_executable(${targetname} ${ARGV})
     target_link_libraries(${targetname} inc warnings msquic)
 
