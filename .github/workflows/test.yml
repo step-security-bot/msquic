@@ -249,6 +249,8 @@ jobs:
       if: matrix.vec.plat == 'linux' || matrix.vec.plat == 'macos'
       run: |
         sudo chmod -R 777 artifacts
+        chown -R $(id -u):$(id -g) $PWD
+        ls -lsa -R
     - name: Prepare Machine
       run: scripts/prepare-machine.ps1 -Tls ${{ matrix.vec.tls }} -ForTest ${{ matrix.vec.xdp }}
       shell: pwsh
