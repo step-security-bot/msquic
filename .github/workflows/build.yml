@@ -196,11 +196,10 @@ jobs:
       uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9
       with:
         fetch-depth: 0
-        submodules: 'recursive'
     - name: Set ownership
       run: |
         # this is to fix GIT not liking owner of the checkout dir
-        chown -R $(id -u):$(id -g) $PWD
+        git config --global safe.directory '*'
     - name: Prepare Machine
       shell: pwsh
       run: scripts/prepare-machine.ps1 -ForOneBranch -InitSubmodules
