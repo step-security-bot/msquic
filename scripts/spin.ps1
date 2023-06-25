@@ -186,5 +186,9 @@ if (![string]::IsNullOrWhiteSpace($ExtraArtifactDir)) {
     $Arguments += " -ExtraArtifactDir $ExtraArtifactDir"
 }
 
+if ($IsLinux) {
+    $env:LD_LIBRARY_PATH = "$ExtraArtifactDir;$env:LD_LIBRARY_PATH"
+}
+
 # Run the script.
 Invoke-Expression ($RunExecutable + " " + $Arguments)

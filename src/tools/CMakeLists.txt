@@ -3,8 +3,8 @@
 
 function(add_quic_tool)
     set(targetname ${ARGV0})
-    set(CMAKE_INSTALL_RPATH "\${ORIGIN}")
     list(REMOVE_AT ARGV 0)
+
     add_executable(${targetname} ${ARGV})
     target_link_libraries(${targetname} inc warnings msquic)
 
