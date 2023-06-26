@@ -226,6 +226,16 @@ CxPlatDataPathUninitializeComplete(
     CxPlatRundownRelease(&CxPlatWorkerRundown);
 }
 
+_IRQL_requires_max_(PASSIVE_LEVEL)
+void
+CxPlatDataPathUpdateConfig(
+    _In_ CXPLAT_DATAPATH* Datapath,
+    _In_ QUIC_EXECUTION_CONFIG* Config
+    )
+{
+    CxPlatDpRawUpdateConfig(Datapath, Config);
+}
+
 _IRQL_requires_max_(DISPATCH_LEVEL)
 uint32_t
 CxPlatDataPathGetSupportedFeatures(
@@ -443,21 +453,6 @@ CxPlatSocketDelete(
     }
 
     CXPLAT_FREE(Socket, QUIC_POOL_SOCKET);
-}
-
-_IRQL_requires_max_(PASSIVE_LEVEL)
-QUIC_STATUS
-CxPlatSocketUpdateQeo(
-    _In_ CXPLAT_SOCKET* Socket,
-    _In_reads_(OffloadCount)
-        const CXPLAT_QEO_CONNECTION* Offloads,
-    _In_ uint32_t OffloadCount
-    )
-{
-    UNREFERENCED_PARAMETER(Socket);
-    UNREFERENCED_PARAMETER(Offloads);
-    UNREFERENCED_PARAMETER(OffloadCount);
-    return QUIC_STATUS_NOT_SUPPORTED;
 }
 
 _IRQL_requires_max_(DISPATCH_LEVEL)
