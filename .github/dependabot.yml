@@ -22,3 +22,48 @@ updates:
     labels:
       - "dependencies"
       - "Language: Rust"
+
+  - package-ecosystem: docker
+    directory: /.devcontainer/developer
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /.docker/ubuntu-20.04
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /.docker/ubuntu-22.04
+    schedule:
+      interval: daily
+
+  - package-ecosystem: docker
+    directory: /.docker/windows
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /scripts/generatevpackpat
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /src/cs/lib
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /src/cs/tool
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /src/plugins/trace/dll
+    schedule:
+      interval: daily
+
+  - package-ecosystem: nuget
+    directory: /src/plugins/trace/exe
+    schedule:
+      interval: daily
